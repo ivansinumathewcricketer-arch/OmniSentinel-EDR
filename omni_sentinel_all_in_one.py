@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.markdown(\"\"\"
+st.markdown("""
     <style>
     .main { background-color: #07090e; color: #f1f5f9; }
     .stSidebar { background-color: #0d1117; border-right: 1px solid #1f2937; }
@@ -33,12 +33,12 @@ st.markdown(\"\"\"
     .metric-val { font-size: 24px; font-weight: 800; color: #34d399; }
     .badge-live { background-color: #065f46; color: #34d399; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; }
     </style>
-\"\"\", unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 def init_db():
     conn = sqlite3.connect('omni_sentinel_audit.db')
     c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS events (timestamp TEXT, event_type TEXT, severity TEXT, description TEXT)''')
+    c.execute('CREATE TABLE IF NOT EXISTS events (timestamp TEXT, event_type TEXT, severity TEXT, description TEXT)')
     conn.commit()
     conn.close()
 
@@ -75,16 +75,16 @@ if st.sidebar.button("🔒 Trigger VSS Ransomware Attack"):
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("### 📌 Navigation Guidelines")
-st.sidebar.markdown("* **Hero Overview:** Mission & identity.\\n* **Architecture Blocks:** Deep dive into FIM & VSS.\\n* **Telemetry Ledger:** Live audit logs.")
+st.sidebar.markdown("* **Hero Overview:** Mission & identity.\n* **Architecture Blocks:** Deep dive into FIM & VSS.\n* **Telemetry Ledger:** Live audit logs.")
 
-st.markdown(\"\"\"
+st.markdown("""
     <div class="hero-card">
         <h1 style="color: #f8fafc; margin-bottom: 10px;">🛡️ OmniSentinel EDR Command Center</h1>
         <p style="color: #94a3b8; font-size: 16px; margin-bottom: 20px;">
             Next-generation automated endpoint threat detection, zero-trust behavioral correlation, and immutable forensic auditing.
         </p>
     </div>
-\"\"\", unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 m1, m2, m3, m4 = st.columns(4)
 with m1: st.markdown('<div class="metric-box"><div class="metric-label">Active Nodes</div><div class="metric-val" style="color: #38bdf8;">1 Agent</div></div>', unsafe_allow_html=True)
